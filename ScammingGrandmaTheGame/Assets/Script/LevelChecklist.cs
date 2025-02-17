@@ -29,6 +29,7 @@ public class Checklist : MonoBehaviour
         //When an item collides with the bed
         if (collision.CompareTag("Item"))
         {
+            
             Destroy(collision.gameObject);
             Destroy(currScene.gameObject);
         }
