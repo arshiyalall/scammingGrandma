@@ -1,15 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MoveSprite : MonoBehaviour
 {
     float moveSpeed = 4;
     private Animator animator;
+    public Toggle myToggle;
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
+        myToggle.isOn = false;
     }
 
     // Update is called once per frame
@@ -54,6 +57,7 @@ public class MoveSprite : MonoBehaviour
         {
             Destroy(collision.gameObject);
             animator.SetBool("isHolding", true);
+            myToggle.isOn = true;
         }
     }
 }
