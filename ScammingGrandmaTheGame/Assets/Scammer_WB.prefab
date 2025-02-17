@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5048609564073685588}
   - component: {fileID: 7710441286251905345}
   m_Layer: 0
-  m_Name: Scammer
+  m_Name: Scammer_WB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
