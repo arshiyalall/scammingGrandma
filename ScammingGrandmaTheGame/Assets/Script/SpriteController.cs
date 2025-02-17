@@ -7,15 +7,19 @@ public class MoveSprite : MonoBehaviour
 {
     float moveSpeed = 4;
     private Animator animator;
-    public Toggle myToggle;
-    // Start is called before the first frame update
+    public List<Toggle> toggles; // List to hold multiple toggles
+
     void Start()
     {
         animator = GetComponent<Animator>();
-        myToggle.isOn = false;
+        
+        // Ensure all toggles are initially off
+        foreach (Toggle toggle in toggles)
+        {
+            toggle.isOn = false;
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKey(KeyCode.RightArrow))
@@ -34,7 +38,6 @@ public class MoveSprite : MonoBehaviour
         {
             moveDirection(Vector2.down, -1, 0);
         }
-        //Sprite is idle
         else
         {
             animator.SetBool("isWalking", false);
@@ -49,15 +52,18 @@ public class MoveSprite : MonoBehaviour
         transform.Translate(vector * moveSpeed * Time.deltaTime);
     }
 
-    //collision refers to the game object which hits this object
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //Remove
         if (collision.CompareTag("Item"))
         {
             Destroy(collision.gameObject);
             animator.SetBool("isHolding", true);
-            myToggle.isOn = true;
+            
+            // Set all toggles to on
+            if (toggles.Count > 0)
+            {
+                toggles[0].isOn = true;
+            }
         }
     }
 }
