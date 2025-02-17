@@ -45,4 +45,15 @@ public class MoveSprite : MonoBehaviour
         animator.SetFloat("InputY", y);
         transform.Translate(vector * moveSpeed * Time.deltaTime);
     }
+
+    //collision refers to the game object which hits this object
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        //Remove
+        if (collision.CompareTag("Item"))
+        {
+            Destroy(collision.gameObject);
+            animator.SetBool("isHolding", true);
+        }
+    }
 }
