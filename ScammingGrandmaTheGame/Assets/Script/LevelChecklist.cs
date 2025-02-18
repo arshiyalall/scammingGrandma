@@ -27,9 +27,9 @@ public class Checklist : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //When an item collides with the bed
-        if (collision.CompareTag("Item"))
+        if (collision.CompareTag("paper"))
         {
-            
+
             Destroy(collision.gameObject);
             Destroy(currScene.gameObject);
         }
