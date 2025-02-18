@@ -220,8 +220,8 @@ RectTransform:
   - {fileID: 364978047}
   - {fileID: 1937846782}
   - {fileID: 528411388}
-  - {fileID: 446227384}
   - {fileID: 97477816}
+  - {fileID: 446227384}
   - {fileID: 252014029}
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -288,7 +288,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 97477815}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -52.7652}
   m_LocalScale: {x: 1.3708792, y: 1.3708792, z: 1.3708792}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -299,8 +299,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 600, y: 299}
-  m_SizeDelta: {x: 160, y: 20}
+  m_AnchoredPosition: {x: 763.85364, y: 356.18573}
+  m_SizeDelta: {x: 207.4294, y: 25.9287}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &97477817
 MonoBehaviour:
@@ -546,7 +546,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -431, y: 308}
+  m_AnchoredPosition: {x: -521, y: 411}
   m_SizeDelta: {x: 400, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &252014030
@@ -562,7 +562,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -617,7 +617,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 364978046}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 356}
+  m_LocalPosition: {x: 0, y: 0, z: 408.7652}
   m_LocalScale: {x: 2.2546995, y: 2.2546995, z: 2.2546995}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -626,8 +626,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 587, y: 295}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 747, y: 351}
+  m_SizeDelta: {x: 129.6434, y: 129.6434}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &364978048
 MonoBehaviour:
@@ -702,7 +702,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -431, y: 355}
+  m_AnchoredPosition: {x: -521, y: 458}
   m_SizeDelta: {x: 400, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &446227385
@@ -718,7 +718,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -942,7 +942,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 528411387}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -52.7652}
   m_LocalScale: {x: 1.5038, y: 1.5038, z: 1.5038}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -951,8 +951,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 582, y: 386}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 740.5178, y: 468.97546}
+  m_SizeDelta: {x: 207.4294, y: 38.893}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &528411389
 MonoBehaviour:
@@ -1496,10 +1496,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 12
+    m_FontSize: 14
     m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 6
+    m_MinSize: 0
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -1507,7 +1507,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Throw Paper @ Bed
+  m_Text: ' Throw Paper @ Bed'
 --- !u!222 &910563119
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2107,7 +2107,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 12
+    m_FontSize: 14
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 1
@@ -2831,7 +2831,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1937846781}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -52.7652}
   m_LocalScale: {x: 1.3708792, y: 1.3708792, z: 1.3708792}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2842,8 +2842,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 600, y: 344}
-  m_SizeDelta: {x: 160, y: 20}
+  m_AnchoredPosition: {x: 763.85364, y: 414.5252}
+  m_SizeDelta: {x: 207.4294, y: 25.9287}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1937846783
 MonoBehaviour:
