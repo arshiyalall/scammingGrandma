@@ -65,9 +65,6 @@ public class MoveSprite : MonoBehaviour
             ballObject.transform.position = transform.position + (Vector3)lastDirection * 0.5f;
         }
 
-        if(hasThrown == true){
-            toggles[1].isOn = true;
-        }
     }
 
     void moveDirection(Vector2 vector, float x, float y)

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Checklist : MonoBehaviour
 {
@@ -8,13 +9,19 @@ public class Checklist : MonoBehaviour
     public GameObject currScene;
     private Animator anim;
 
-    // Start is called before the first frame update
+    private MoveSprite moveSprite; // Reference to MoveSprite
+
     void Start()
     {
+        // Find the MoveSprite script in the scene
+        moveSprite = FindObjectOfType<MoveSprite>();
 
+        if (moveSprite == null)
+        {
+            Debug.LogError("MoveSprite script not found in the scene!");
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKey(KeyCode.E))
@@ -23,12 +30,19 @@ public class Checklist : MonoBehaviour
         }
     }
 
-    //collision refers to the game object which hits this object
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //When an item collides with the bed
         if (collision.CompareTag("paper"))
         {
+            // Check if moveSprite is found and if toggles has at least 2 elements
+            if (moveSprite != null && moveSprite.toggles.Count > 1)
+            {
+                moveSprite.toggles[1].isOn = true; // Turn on toggle[1]
+            }
+            else
+            {
+                Debug.LogError("MoveSprite reference is missing or toggles list is too short!");
+            }
 
             Destroy(collision.gameObject);
             Destroy(currScene.gameObject);
