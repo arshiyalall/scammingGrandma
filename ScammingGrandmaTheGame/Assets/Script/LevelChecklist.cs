@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement; // Import SceneManager
 
 public class Checklist : MonoBehaviour
 {
@@ -38,6 +39,9 @@ public class Checklist : MonoBehaviour
             if (moveSprite != null && moveSprite.toggles.Count > 1)
             {
                 moveSprite.toggles[1].isOn = true; // Turn on toggle[1]
+                
+                // Start coroutine to delay and load next scene
+                StartCoroutine(DelayedSceneChange());
             }
             else
             {
@@ -47,5 +51,13 @@ public class Checklist : MonoBehaviour
             Destroy(collision.gameObject);
             Destroy(currScene.gameObject);
         }
+    }
+
+    IEnumerator DelayedSceneChange()
+    {
+        yield return new WaitForSeconds(3f); // Wait for 3 seconds
+
+        // Load the next scene (Change "NextSceneName" to your actual scene name)
+        SceneManager.LoadScene("NextLevel");
     }
 }
