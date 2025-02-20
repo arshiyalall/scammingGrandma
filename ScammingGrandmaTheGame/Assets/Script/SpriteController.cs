@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class MoveSprite : MonoBehaviour
 {
-    float moveSpeed = 4;
+    public float moveSpeed = 4;
     private Animator animator;
     public List<Toggle> toggles;
     public GameObject ballObject;
