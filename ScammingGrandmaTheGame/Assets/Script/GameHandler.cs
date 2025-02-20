@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LevelManager : MonoBehaviour
+public class GameHandler : MonoBehaviour
 {
     // Function to load the first scene in the build order
     public void LoadFirstScene()
