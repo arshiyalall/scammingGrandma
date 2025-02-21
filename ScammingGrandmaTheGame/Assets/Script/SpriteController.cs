@@ -5,19 +5,16 @@ using UnityEngine.UI;
 
 public class MoveSprite : MonoBehaviour
 {
-    public float moveSpeed = 4;
-    private Animator animator;
     public List<Toggle> toggles;
     public GameObject ballObject;
     public float throwForce = 10f;
     private bool hasThrown = false;
     private Vector3 initialBallPosition;
     private Vector2 lastDirection = Vector2.right; // Default direction
+    public GameObject spawnPoint;
 
     void Start()
-    {
-        animator = GetComponent<Animator>();
-        
+    {   
         // Ensure all toggles are initially off
         foreach (Toggle toggle in toggles)
         {
@@ -29,31 +26,13 @@ public class MoveSprite : MonoBehaviour
             initialBallPosition = ballObject.transform.position;
             ballObject.SetActive(false); // Hide the ball at the start
         }
+
+        //Spawn sprite in office
+        transform.position = spawnPoint.transform.position;
     }
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            moveDirection(Vector2.right, 1, 0);
-        }
-        else if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            moveDirection(Vector2.left, -1, 0);
-        }
-        else if (Input.GetKey(KeyCode.UpArrow))
-        {
-            moveDirection(Vector2.up, 0, 1);
-        }
-        else if (Input.GetKey(KeyCode.DownArrow))
-        {
-            moveDirection(Vector2.down, 0, -1);
-        }
-        else
-        {
-            animator.SetBool("isWalking", false);
-        }
-
         if (Input.GetKeyDown(KeyCode.Space) && !hasThrown && ballObject != null && ballObject.activeSelf)
         {
             Throw();
@@ -67,23 +46,11 @@ public class MoveSprite : MonoBehaviour
 
     }
 
-    void moveDirection(Vector2 vector, float x, float y)
-    {
-        animator.SetBool("isWalking", true);
-        animator.SetFloat("InputX", x);
-        animator.SetFloat("InputY", y);
-        transform.Translate(vector * moveSpeed * Time.deltaTime);
-
-        // Update last movement direction
-        lastDirection = vector;
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Item"))
         {
             Destroy(collision.gameObject);
-            animator.SetBool("isHolding", true);
             
             // Set all toggles to on
             if (toggles.Count > 0)
