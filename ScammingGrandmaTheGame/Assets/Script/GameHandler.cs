@@ -92,6 +92,25 @@ public class GameHandler : MonoBehaviour{
         numTasksCompleted++;
     }
 
+    public void spawnResistanceBand() {
+        //resistanceBand visibility true
+    }
+
+    public void spawnFood() {
+        //food visibility true
+    }
+
+    public void nextDay() {
+        SceneManager.LoadScene("NextDay");
+    }
+
+    public void youveBeenCaught() {
+        SceneManager.LoadScene("youveBeenCaught");
+    }
+    
+    public void nightScreen() {
+        SceneManager.LoadScene("nightScreen");
+    }
 
     //Functions for opening scenes. 
     public void Settings() {
