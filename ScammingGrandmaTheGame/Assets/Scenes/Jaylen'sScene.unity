@@ -607,6 +607,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2097144909}
     - target: {fileID: 5984432161233452213, guid: 1e5cc1ae63d8446159845fdfafcadaf8, type: 3}
+      propertyPath: spawnPoint
+      value: 
+      objectReference: {fileID: 2009459515}
+    - target: {fileID: 5984432161233452213, guid: 1e5cc1ae63d8446159845fdfafcadaf8, type: 3}
       propertyPath: toggles.Array.size
       value: 1
       objectReference: {fileID: 0}
