@@ -8,6 +8,7 @@ TagManager:
   - paper
   - GameHandler
   - grandma1
+  - Enemy
   layers:
   - Default
   - TransparentFX
