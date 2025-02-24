@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Item
   - paper
+  - GameHandler
+  - grandma1
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -42,4 +45,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: grandma
+    uniqueID: 2540483049
     locked: 0
