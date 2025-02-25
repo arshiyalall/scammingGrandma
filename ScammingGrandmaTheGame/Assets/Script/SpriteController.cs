@@ -46,7 +46,7 @@ public class MoveSprite : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    /* private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Item"))
         {
@@ -66,7 +66,7 @@ public class MoveSprite : MonoBehaviour
                 hasThrown = false; // Reset throw state
             }
         }
-    }
+    } */
 
     void Throw()
     {

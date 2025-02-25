@@ -3,18 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Item
-  - paper
-  - GameHandler
-  - grandma1
-  - Enemy
-  - wateringCan
+  tags: []
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - task
+  - 
   - Water
   - UI
   - 
@@ -46,10 +40,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: grandma
-    uniqueID: 2540483049
-    locked: 0
-  - name: task
-    uniqueID: 933936665
     locked: 0

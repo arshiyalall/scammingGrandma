@@ -1,14 +1,26 @@
 using UnityEngine;
+using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class GuardVision : MonoBehaviour
 {
     [Header("Vision Settings")]
-    public float detectionRange = 10f; // How far the guard can see
-    public float fieldOfViewAngle = 90f; // Field of view angle in degrees
+    public float detectionRange = 10f;
+    public float fieldOfViewAngle = 90f;
+    public float rotationSpeed = 2f; // Speed of rotation
+    public float switchDirectionInterval = 3f; // Time between direction switches
 
     [Header("References")]
-    public Transform player; // Player reference
-    public LayerMask obstacleMask; // Layers to block the raycast (like walls)
+    public Transform player;
+    public LayerMask obstacleMask;
+    public LineRenderer visionCone; // Reference to the LineRenderer
+
+    private float currentRotationAngle = 0f;
+    private bool rotatingClockwise = true;
+
+    private bool isFlipped = false; // Track if the guard is flipped
+
+    private float timePlayerInSight = 0f; // Track the time the player has been in sight
 
     private void Start()
     {
@@ -24,15 +36,81 @@ public class GuardVision : MonoBehaviour
                 Debug.LogError("❌ Player not found! Make sure the Player has the 'Player' tag.");
             }
         }
+
+        if (visionCone == null)
+        {
+            visionCone = GetComponent<LineRenderer>();
+        }
+
+        if (visionCone != null)
+        {
+            visionCone.positionCount = 3; // Triangle shape
+            visionCone.startWidth = 0.05f;
+            visionCone.endWidth = 0.05f;
+            visionCone.useWorldSpace = true;
+            visionCone.material = new Material(Shader.Find("Sprites/Default"));
+            visionCone.startColor = Color.yellow;
+            visionCone.endColor = Color.yellow;
+        }
+
+        StartCoroutine(SwitchDirectionRoutine()); // Start periodic direction flip
     }
 
     private void Update()
     {
-        if (player == null) return; // Prevent errors if the player isn't assigned
+        if (player == null) return;
 
-        if (CanSeePlayer())
+        bool canSeePlayer = CanSeePlayer();
+        Debug.Log("Can see player: " + canSeePlayer); // Debug to check vision status
+
+        if (canSeePlayer)
         {
-            Debug.Log("🔴 Player spotted!");
+            timePlayerInSight += Time.deltaTime; // Increment time when player is in sight
+            Debug.Log("Player in sight for: " + timePlayerInSight + " seconds"); // Debug the timer
+        }
+        else
+        {
+            timePlayerInSight = 0f; // Reset if the player is out of sight
+        }
+
+        if (timePlayerInSight > 1f) // Check if the player has been in sight for more than 1 second
+        {
+            SceneManager.LoadScene("CaughtScene");
+            Debug.Log("dead"); 
+            // Print "dead" if the player has been in sight for 1 second
+        }
+
+        FlipGuardDirection(); // Flip vision cone direction
+        UpdateVisionCone();
+    }
+
+    IEnumerator SwitchDirectionRoutine()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(switchDirectionInterval);
+            rotatingClockwise = !rotatingClockwise; // Flip rotation direction
+        }
+    }
+
+    void FlipGuardDirection()
+    {
+        // Flip the guard's scale along the x-axis to reverse the direction
+        if (rotatingClockwise)
+        {
+            if (isFlipped)
+            {
+                transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+                isFlipped = false;
+            }
+        }
+        else
+        {
+            if (!isFlipped)
+            {
+                transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+                isFlipped = true;
+            }
         }
     }
 
@@ -40,46 +118,33 @@ public class GuardVision : MonoBehaviour
     {
         if (player == null) return false;
 
-        // Step 1: Check if the player is within the detection range
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
         if (distanceToPlayer > detectionRange) return false;
 
-        // Step 2: Check if the player is within the field of view angle
+        // Flip the detection direction when the guard is flipped
         Vector2 directionToPlayer = (player.position - transform.position).normalized;
-        float angleToPlayer = Vector2.Angle(transform.right, directionToPlayer); // Use transform.right for 2D
+        float angleToPlayer = Vector2.Angle(isFlipped ? -transform.right : transform.right, directionToPlayer); // Use flipped direction if needed
         if (angleToPlayer > fieldOfViewAngle / 2f) return false;
 
-        // Step 3: Perform a raycast to check for obstacles blocking the vision
         RaycastHit2D hit = Physics2D.Raycast(transform.position, directionToPlayer, detectionRange, obstacleMask);
         if (hit.collider != null && hit.collider.CompareTag("Player"))
         {
-            return true; // Guard can see the player
+            return true;
         }
 
         return false;
     }
 
-    // Debugging with Gizmos
-    private void OnDrawGizmos()
+    void UpdateVisionCone()
     {
-        if (player == null) return;
+        if (visionCone == null) return;
 
-        // Draw field of view as a cone
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, detectionRange);
+        Vector2 origin = transform.position;
+        Vector2 leftBoundary = Quaternion.Euler(0, 0, -fieldOfViewAngle / 2) * (isFlipped ? -transform.right : transform.right) * detectionRange;
+        Vector2 rightBoundary = Quaternion.Euler(0, 0, fieldOfViewAngle / 2) * (isFlipped ? -transform.right : transform.right) * detectionRange;
 
-        Vector2 leftBoundary = Quaternion.Euler(0, 0, -fieldOfViewAngle / 2) * transform.right;
-        Vector2 rightBoundary = Quaternion.Euler(0, 0, fieldOfViewAngle / 2) * transform.right;
-
-        Gizmos.color = Color.blue;
-        Gizmos.DrawLine(transform.position, (Vector2)transform.position + leftBoundary * detectionRange);
-        Gizmos.DrawLine(transform.position, (Vector2)transform.position + rightBoundary * detectionRange);
-
-        // Draw the ray for debugging
-        if (CanSeePlayer())
-        {
-            Gizmos.color = Color.red;
-            Gizmos.DrawLine(transform.position, player.position);
-        }
+        visionCone.SetPosition(0, origin); // Guard position
+        visionCone.SetPosition(1, (Vector2)origin + leftBoundary); // Left vision boundary
+        visionCone.SetPosition(2, (Vector2)origin + rightBoundary); // Right vision boundary
     }
 }
