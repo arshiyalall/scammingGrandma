@@ -256,7 +256,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.8
+  m_Radius: 0.6
 --- !u!50 &6397329550455483413
 Rigidbody2D:
   serializedVersion: 4
@@ -316,7 +316,7 @@ Transform:
   - {fileID: 8423996289781171365}
   - {fileID: 2722284355702099848}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6783931990502817207
 GameObject:

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class pickupDropoff : MonoBehaviour
 {
@@ -11,12 +12,14 @@ public class pickupDropoff : MonoBehaviour
     public GameObject scammer;
     public GameObject spawnpoint;
     public GameObject despawnpoint;
+    public Toggle myToggle;
 
     // Start is called before the first frame update
     void Start()
     {
         //Spawn at spawnpoint
         transform.position = spawnpoint.transform.position;
+        myToggle.isOn = false;
     }
 
     // Update is called once per frame
@@ -57,6 +60,7 @@ public class pickupDropoff : MonoBehaviour
             itemArt.transform.position = despawnpoint.transform.position;
             pickedUp = false;
             droppedOff = true;
+            myToggle.isOn = true;
         }
     }
 }
