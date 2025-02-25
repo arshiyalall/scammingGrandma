@@ -4,19 +4,5 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/DaytimePhase.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-<<<<<<< Updated upstream
-  - enabled: 1
-    path: Assets/Scenes/Week 1/NextLevel.unity
-=======
-  - enabled: 0
-    path: Assets/Scenes/NextLevel.unity
->>>>>>> Stashed changes
-    guid: 5d3c7946a0c3b4fc2bc8dbe69a50f446
-  - enabled: 1
-    path: Assets/Scenes/CaughtScene.unity
-    guid: 36a4e12377f74484681a0b0a4c57bf40
+  m_Scenes: []
   m_configObjects: {}
