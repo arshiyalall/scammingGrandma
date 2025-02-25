@@ -7,7 +7,7 @@ public class pickupDropoff : MonoBehaviour
     private Vector2 lastDirection;
     private bool pickedUp = false;
     private bool droppedOff = false;
-    public GameObject drugArt;
+    public GameObject itemArt;
     public GameObject scammer;
     public GameObject spawnpoint;
     public GameObject despawnpoint;
@@ -41,9 +41,9 @@ public class pickupDropoff : MonoBehaviour
         }
 
         //Move with player
-        if (drugArt != null && pickedUp)
+        if (itemArt != null && pickedUp)
         {
-            drugArt.transform.position = scammer.transform.position + (Vector3)lastDirection * 0.5f;
+            itemArt.transform.position = scammer.transform.position + (Vector3)lastDirection * 0.5f;
         }
     }
 
@@ -54,7 +54,7 @@ public class pickupDropoff : MonoBehaviour
             pickedUp = true;
         } else if (collision.gameObject == despawnpoint) 
         {
-            drugArt.transform.position = despawnpoint.transform.position;
+            itemArt.transform.position = despawnpoint.transform.position;
             pickedUp = false;
             droppedOff = true;
         }
