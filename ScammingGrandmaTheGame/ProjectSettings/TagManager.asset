@@ -9,11 +9,12 @@ TagManager:
   - GameHandler
   - grandma1
   - Enemy
+  - wateringCan
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - task
   - Water
   - UI
   - 
@@ -48,4 +49,7 @@ TagManager:
     locked: 0
   - name: grandma
     uniqueID: 2540483049
+    locked: 0
+  - name: task
+    uniqueID: 933936665
     locked: 0

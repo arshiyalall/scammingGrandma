@@ -11,16 +11,15 @@ public class GameHandler : MonoBehaviour{
     private string sceneName;
     private int grandmaSatisfaction;
 
-    //information to gather
-    private bool gotSSN;
-    private bool gotMaiden;
-    private bool gotAddress;
-    private bool gotBankInfo;
-
     private bool caughtByGuard;
 
     private int numTasksCompleted;
     private int numTasksAssigned;
+
+    private int startint=0;
+    private int updateint=0;
+
+    // private GameObject[10] taskArr;
 
     // struct task {
     //     string taskName;
@@ -30,12 +29,54 @@ public class GameHandler : MonoBehaviour{
     // private std::vector<task> taskArr;
 
     void Start(){
-        SceneManager.LoadScene("StartScreen");
-        player = GameObject.FindWithTag("Player");
-        sceneName = SceneManager.GetActiveScene().name;
-           
+        Debug.Log("Starting: " + startint);
+        startint++;
+        // SceneManager.LoadScene("StartScreen");
+        if (Input.GetKeyDown(KeyCode.Q)){
+            Debug.Log("Hell yeah\n");
+            // Debug.LogError("Damn mf we pressed escape\n");
+            // SceneManager.LoadScene("PauseMenu");
+        }
+
+        // sceneName = SceneManager.GetActiveScene().name;
+        // player = GameObject.FindWithTag("Player");
+        // instantianteTaskArr();
     }
 
+    void Update(){
+        Debug.Log("Updating: " + updateint);
+        updateint++;   
+        Debug.Log("after updating" + updateint + "\n");
+
+
+        if (! (Input.GetKeyDown(KeyCode.Q))){
+            Debug.Log("Hell yeah\n");
+            // Debug.LogError("Damn mf we pressed escape\n");
+            // SceneManager.LoadScene("PauseMenu");
+        }
+        
+         if ((Input.GetKeyDown(KeyCode.Q))){
+            Debug.Log("Hell yeah key press\n");
+            // Debug.LogError("Damn mf we pressed escape\n");
+            // SceneManager.LoadScene("PauseMenu");
+        }
+        
+        //  if (Input.GetKeyDown(KeyCode.Escape)){
+        //     Debug.Log("Hell yeah\n");
+        //     Debug.LogError("Damn mf we pressed escape\n");
+        //     SceneManager.LoadScene("PauseMenu");
+        // }
+    }
+
+
+    //populate the task array with objects of the correct tag
+    private void instantianteTaskArr(){
+        // taskArr[0] = GameObject.FindWithTag("paper");
+        // taskArr[1] = GameObject.FindWithTag("plate");
+        // taskArr[2] = GameObject.FindWithTag("wateringCan");
+
+
+    }
 
     //Each possible task function will be called if a bool is set to true.
     //    This is so we can effectively choose which tasks the player has to 
@@ -47,10 +88,6 @@ public class GameHandler : MonoBehaviour{
         SceneManager.LoadScene("Level1");
 
         //set default values
-        gotSSN = false;
-        gotMaiden = false;
-        gotAddress = false;
-        gotBankInfo = false;
         grandmaSatisfaction = 100;
         numTasksCompleted = 0;
         numTasksAssigned = 5;
