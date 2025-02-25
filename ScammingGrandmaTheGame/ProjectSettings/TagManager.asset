@@ -9,6 +9,7 @@ TagManager:
   - GameHandler
   - grandma1
   - Enemy
+  - plate
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - Glow
   - 
   - 
   - 
@@ -43,6 +44,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 4205998353
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
