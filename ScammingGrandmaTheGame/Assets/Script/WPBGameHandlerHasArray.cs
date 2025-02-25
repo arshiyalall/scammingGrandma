@@ -4,8 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-
-public class GameHandler : MonoBehaviour{
+//Switch name of class
+public class WPBGameHandlerHasArray : MonoBehaviour{
 
     private GameObject player;
     private string sceneName;
@@ -85,7 +85,8 @@ public class GameHandler : MonoBehaviour{
 
 
     public void StartGame() {
-        SceneManager.LoadScene("Level1");
+        Debug.Log("Inside Startgame\n");
+        SceneManager.LoadScene("DaytimePhase");
 
         //set default values
         grandmaSatisfaction = 100;
@@ -159,7 +160,16 @@ public class GameHandler : MonoBehaviour{
         SceneManager.LoadScene("Pause");
     }
 
+    public void printOnKeyPress(){
+        for (int i = 0; i< 100; i++){
+        Debug.Log("Yay you pressed this key!");
+    }
+    }
+
     public void Credits() {
+        for (int i = 0; i < 100; i++) {
+            Debug.Log("In Credits");
+        }
         SceneManager.LoadScene("Credits");
     }
 }    
