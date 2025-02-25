@@ -1,24 +1,41 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
-    public static bool GameIsPaused = false; // Track whether the game is paused
+    private bool GameIsPaused = false; // Track whether the game is paused
     public GameObject pauseMenuUI; // Assign the PauseMenu UI in Unity
+    public Button myButton;
+
+    void Start()
+    {
+        if (myButton != null)
+        {
+            myButton.onClick.AddListener(TogglePause); // Assign the button click function
+        }
+        else
+        {
+            Debug.LogError("Pause button not assigned!");
+        }
+
+        pauseMenuUI.SetActive(false);
+    }
 
     void Update()
     {
-        // Check if the player presses the ESC key
-        if (Input.GetKeyDown(KeyCode.Escape))
+
+    }
+
+    public void TogglePause()
+    {
+        if (GameIsPaused)
         {
-            if (GameIsPaused)
-            {
-                Resume();
-            }
-            else
-            {
-                Pause();
-            }
+            Resume();
+        }
+        else
+        {
+            Pause();
         }
     }
 
@@ -38,13 +55,12 @@ public class PauseMenu : MonoBehaviour
 
     public void QuitGame()
     {
-    Debug.Log("Quit Button Pressed! (This will work in a built game)");
-    
-    #if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-    #else
-        Application.Quit();
-    #endif
-    }
+        Debug.Log("Quit Button Pressed! (This will work in a built game)");
 
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+        #else
+            Application.Quit();
+        #endif
+    }
 }

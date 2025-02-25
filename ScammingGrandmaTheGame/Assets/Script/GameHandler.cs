@@ -21,6 +21,7 @@ public class GameHandler : MonoBehaviour{
 
     private int numTasksCompleted;
     private int numTasksAssigned;
+    public Button startButton;
 
     // struct task {
     //     string taskName;
@@ -30,10 +31,14 @@ public class GameHandler : MonoBehaviour{
     // private std::vector<task> taskArr;
 
     void Start(){
-        SceneManager.LoadScene("StartScreen");
+        // SceneManager.LoadScene("StartScreen");
         player = GameObject.FindWithTag("Player");
         sceneName = SceneManager.GetActiveScene().name;
-           
+    }
+
+    void Update()
+    {
+        startButton.onClick.AddListener(StartGame);
     }
 
 
@@ -44,13 +49,9 @@ public class GameHandler : MonoBehaviour{
 
 
     public void StartGame() {
-        SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene("DaytimePhase");
 
         //set default values
-        gotSSN = false;
-        gotMaiden = false;
-        gotAddress = false;
-        gotBankInfo = false;
         grandmaSatisfaction = 100;
         numTasksCompleted = 0;
         numTasksAssigned = 5;
