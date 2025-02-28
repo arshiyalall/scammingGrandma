@@ -222,6 +222,8 @@ MonoBehaviour:
   scammer: {fileID: 0}
   spawnpoint: {fileID: 6783931990502817207}
   despawnpoint: {fileID: 1419366387771105978}
+  myToggle: {fileID: 0}
+  satisfactionHandler: {fileID: 5780505856749353853, guid: 6af792b09dfa447039a5eda93ab05488, type: 3}
 --- !u!58 &61429980373573415
 CircleCollider2D:
   m_ObjectHideFlags: 0

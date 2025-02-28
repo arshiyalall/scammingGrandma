@@ -14,6 +14,8 @@ public class pickupDropoff : MonoBehaviour
     public GameObject despawnpoint;
     public Toggle myToggle;
 
+    public CoroutineManager couroutineManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,8 +57,9 @@ public class pickupDropoff : MonoBehaviour
         if (collision.CompareTag("Player") && !droppedOff)
         {
             pickedUp = true;
-        } else if (collision.gameObject == despawnpoint) 
+        } else if (collision.gameObject == despawnpoint && !droppedOff) 
         {
+            couroutineManager.IncreaseSatisfaction();
             itemArt.transform.position = despawnpoint.transform.position;
             pickedUp = false;
             droppedOff = true;

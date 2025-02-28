@@ -100,9 +100,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemArt: {fileID: 1713535008448445608}
-  scammer: {fileID: 0}
+  scammer: {fileID: 4225069846008329030, guid: ea49eed4e7fe84f89954dc4e3cce7a72, type: 3}
   spawnpoint: {fileID: 4006404141798120365}
   despawnpoint: {fileID: 4986908243600334415}
+  myToggle: {fileID: 0}
+  couroutineManager: {fileID: 0}
 --- !u!58 &5480608312769252923
 CircleCollider2D:
   m_ObjectHideFlags: 0
