@@ -52,6 +52,32 @@ public class CoroutineManager : MonoBehaviour
 
     IEnumerator LoadNightRoutine() {
         yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene("NightimeCOPY");
+    }
+
+    public void endNight() {
+        StartCoroutine(FadeAndLoadDayRoutine());
+    }
+
+    IEnumerator FadeAndLoadDayRoutine() {
+        float alpha = 1f;
+        while (alpha > 0f)
+        {
+            alpha -= fadeSpeed * Time.deltaTime;
+            fadeCanvasGroup.alpha = alpha;
+            yield return null;
+        }
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene("NextDayScene");
+    }
+
+    public void startDay() {
+        StartCoroutine(LoadDayRoutine());
+    }
+
+    IEnumerator LoadDayRoutine() {
+        yield return new WaitForSeconds(3f);
         SceneManager.LoadScene("DaytimePhase");
     }
 }
+
