@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/DaytimePhase.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
+    path: Assets/Scenes/Transitions/NightScreen.unity
+    guid: d155e45f71e1747a5829eeb69ff07347
+  - enabled: 0
     path: Assets/Scenes/PauseMenu.unity
     guid: 09915fd72665d49b788d7dcf7f949ca5
   - enabled: 0
