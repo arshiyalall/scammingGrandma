@@ -9,7 +9,6 @@ public class SatisfactionHandler : MonoBehaviour
     private int maxSatisfaction; // Max index for sprites
     private int minSatisfaction = 0; // Minimum sprite index
     private Image imageComponent;
-
     public float decreaseRate = 0.5f;
     private float decreaseTimer = 0f;
     public float decreaseInterval = 10f;
@@ -17,7 +16,7 @@ public class SatisfactionHandler : MonoBehaviour
     void Awake() {
         //Set satisfaction to max to start
         maxSatisfaction = satisfactionSprites.Length - 1;
-        
+
         if (satisfactionLevel == 0) {
             satisfactionLevel = maxSatisfaction;
         }
@@ -26,7 +25,6 @@ public class SatisfactionHandler : MonoBehaviour
     void Start()
     {
         imageComponent = GetComponent<Image>();
-        Debug.Log("Starting with " + satisfactionLevel);
         UpdateSatisfactionMeter();
     }
 
@@ -57,7 +55,6 @@ public class SatisfactionHandler : MonoBehaviour
 
     private void UpdateSatisfactionMeter()
     {
-        Debug.Log("Updated to " + satisfactionLevel);
         imageComponent.sprite = satisfactionSprites[satisfactionLevel];
     }
 
