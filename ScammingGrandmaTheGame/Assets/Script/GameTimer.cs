@@ -7,9 +7,13 @@ using UnityEngine.SceneManagement;
 
 public class GameTimer : MonoBehaviour {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     public int timer = 60;
 =======
     public int timer = 60;
+>>>>>>> Stashed changes
+=======
+    public int timer = 20;
 >>>>>>> Stashed changes
     private float theTimer = 0f;
     public GameObject timerText;
