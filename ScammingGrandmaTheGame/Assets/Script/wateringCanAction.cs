@@ -12,10 +12,12 @@ public class wateringCanAction : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
+        if (gameObject.)
         if (Input.GetKeyDown("e")){
             watering = true;
+            Debug.Log("Watering!");
         }
         else {
             watering = false;
