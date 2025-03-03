@@ -895,7 +895,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1215697405924488989, guid: a5812eeb66e8a435596e4113d3e8dbe9, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -981,8 +982,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6582f2979bdfc47dc9c95c282f00b15b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 20
+  timer: 10
   timerText: {fileID: 459872216}
+  coroutineManager: {fileID: 40122530}
 --- !u!1 &1320680709
 GameObject:
   m_ObjectHideFlags: 0
