@@ -8,14 +8,28 @@ public class ItemPill : MonoBehaviour
     public GameObject spawnpoint;
     public GameObject itemArt;
     public Toggle myToggle;
-    public bool pickedUpPills;
+    public static bool[] pickedUpPills;
+    public bool pickedUpThisRound;
+    public int itemIndex;
 
+    void Awake() {
+        if (pickedUpPills == null)
+        {
+            pickedUpPills = new bool[5];
+        }
+    }
+    
     void Start()
     {
-        //Spawn at spawnpoint
-        transform.position = spawnpoint.transform.position;
-        myToggle.isOn = false;
-        pickedUpPills = false;
+        if (pickedUpPills[itemIndex]) {
+            itemArt.SetActive(false);
+            myToggle.isOn = true;
+        } else {
+            //Spawn at spawnpoint
+            transform.position = spawnpoint.transform.position;
+            myToggle.isOn = false;
+        }
+        pickedUpThisRound = false;
     }
 
     // Update is called once per frame
@@ -30,8 +44,8 @@ public class ItemPill : MonoBehaviour
         {
             myToggle.isOn = true;
             itemArt.SetActive(false);
-            pickedUpPills = true;
-
+            pickedUpPills[itemIndex] = true;
+            pickedUpThisRound = true;
         }
     }
 }

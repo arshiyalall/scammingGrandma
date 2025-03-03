@@ -31,12 +31,14 @@ public class OfficeNight : MonoBehaviour
         {
             //When player exits the office initially
             inOffice = false;
+            Debug.Log("Left office");
         } else if (collision.CompareTag("Player") && !inOffice) {
             //When player returns to the office
             //Check which pills have been collected and add random money
+            Debug.Log("Entered office");
             for (int i = 0; i < 5; i++) {
-                if (pillScripts[i].pickedUpPills) {
-                    
+                if (pillScripts[i].pickedUpThisRound) {
+                    Debug.Log("Picked Up " + i);
                 }
             }
             //Debug.Log();
