@@ -30,12 +30,11 @@ public class ReturnOffice : MonoBehaviour
         {
             //When player exits the office initially
             inOffice = false;
-            Debug.Log("collided with inOffice true");
         } else if (collision.CompareTag("Player") && !inOffice) {
             //When player returns to the office
             myToggle.isOn = true;
+            couroutineManager.IncreaseSatisfaction();
             couroutineManager.endDay();
-            Debug.Log("collided with inOffice false");
         }
     }
 }
