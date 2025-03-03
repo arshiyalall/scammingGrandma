@@ -9,6 +9,7 @@ public class GameTimer : MonoBehaviour {
     public int timer = 60;
     private float theTimer = 0f;
     public GameObject timerText;
+    public CoroutineManager coroutineManager;
 
     void FixedUpdate(){
         theTimer += 0.01f;
@@ -44,7 +45,7 @@ public class GameTimer : MonoBehaviour {
         
         //Here is the place where we will transition to the nightscreen. But it is not working. 
         
-        SceneManager.LoadScene("NightScreen");
+        coroutineManager.endNight();
 
     }
 }

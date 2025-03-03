@@ -9,11 +9,14 @@ public class OfficeNight : MonoBehaviour
     public bool inOffice;
 
     public CoroutineManager couroutineManager;
+    public ItemPill[] pillScripts;
+    public int moneyThisRound;
 
     // Start is called before the first frame update
     void Start()
     {
         inOffice = true;
+        moneyThisRound = 0;
     }
 
     // Update is called once per frame
@@ -28,11 +31,16 @@ public class OfficeNight : MonoBehaviour
         {
             //When player exits the office initially
             inOffice = false;
-            Debug.Log("collided with inOffice true");
         } else if (collision.CompareTag("Player") && !inOffice) {
             //When player returns to the office
+            //Check which pills have been collected and add random money
+            for (int i = 0; i < 5; i++) {
+                if (pillScripts[i].pickedUpPills) {
+                    
+                }
+            }
+            //Debug.Log();
             couroutineManager.endNight();
-            Debug.Log("collided with inOffice false");
         }
     }
 }
