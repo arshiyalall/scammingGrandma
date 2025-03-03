@@ -8,12 +8,14 @@ public class ItemPill : MonoBehaviour
     public GameObject spawnpoint;
     public GameObject itemArt;
     public Toggle myToggle;
+    public bool pickedUpPills;
 
     void Start()
     {
         //Spawn at spawnpoint
         transform.position = spawnpoint.transform.position;
         myToggle.isOn = false;
+        pickedUpPills = false;
     }
 
     // Update is called once per frame
@@ -28,6 +30,8 @@ public class ItemPill : MonoBehaviour
         {
             myToggle.isOn = true;
             itemArt.SetActive(false);
+            pickedUpPills = true;
+
         }
     }
 }

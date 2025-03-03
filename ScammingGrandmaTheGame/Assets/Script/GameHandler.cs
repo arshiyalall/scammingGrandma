@@ -11,6 +11,9 @@ public class GameHandler : MonoBehaviour{
     private string sceneName;
     private int grandmaSatisfaction;
 
+    private int dayNumber; 
+    private int money;
+
     private bool caughtByGuard;
 
     private int numTasksCompleted;
@@ -29,6 +32,9 @@ public class GameHandler : MonoBehaviour{
     // private std::vector<task> taskArr;
 
     void Start(){
+        dayNumber = 1;
+        money = 0;
+        
         Debug.Log("Starting: " + startint);
         startint++;
         // SceneManager.LoadScene("StartScreen");
@@ -43,20 +49,11 @@ public class GameHandler : MonoBehaviour{
         // instantianteTaskArr();
     }
 
-    void Update(){
-        Debug.Log("Updating: " + updateint);
-        updateint++;   
-        Debug.Log("after updating" + updateint + "\n");
+    void FixedUpdate(){
 
 
-        if (! (Input.GetKeyDown(KeyCode.Q))){
+        if ((Input.GetKeyDown(KeyCode.Q))){
             Debug.Log("Hell yeah\n");
-            // Debug.LogError("Damn mf we pressed escape\n");
-            // SceneManager.LoadScene("PauseMenu");
-        }
-        
-         if ((Input.GetKeyDown(KeyCode.Q))){
-            Debug.Log("Hell yeah key press\n");
             // Debug.LogError("Damn mf we pressed escape\n");
             // SceneManager.LoadScene("PauseMenu");
         }
@@ -139,6 +136,10 @@ public class GameHandler : MonoBehaviour{
 
     public void nextDay() {
         SceneManager.LoadScene("NextDay");
+    }
+
+    public void transitionToNight() {
+        SceneManager.LoadScene("NightScreen");
     }
 
     public void youveBeenCaught() {
