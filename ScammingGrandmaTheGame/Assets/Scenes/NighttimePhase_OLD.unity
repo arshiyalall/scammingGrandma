@@ -1552,6 +1552,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 77126687}
     m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: timer
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 3679397866728588175, guid: a5812eeb66e8a435596e4113d3e8dbe9, type: 3}
       propertyPath: m_Name
       value: timerText
@@ -1622,11 +1626,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4623658760474689110, guid: a5812eeb66e8a435596e4113d3e8dbe9, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -306
+      value: -98.8
       objectReference: {fileID: 0}
     - target: {fileID: 4623658760474689110, guid: a5812eeb66e8a435596e4113d3e8dbe9, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 176.4
+      value: 178
       objectReference: {fileID: 0}
     - target: {fileID: 4623658760474689110, guid: a5812eeb66e8a435596e4113d3e8dbe9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
