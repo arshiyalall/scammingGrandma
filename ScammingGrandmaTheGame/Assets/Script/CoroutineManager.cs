@@ -61,7 +61,7 @@ public class CoroutineManager : MonoBehaviour
 
     IEnumerator FadeAndLoadDayRoutine() {
         //Wait a little longer so player can see money earned
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1.5f);
 
         float alpha = 1f;
         while (alpha > 0f)

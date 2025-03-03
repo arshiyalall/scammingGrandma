@@ -8,10 +8,6 @@ using UnityEngine.SceneManagement;
 public class MoneyHandler : MonoBehaviour {
     public static int money;
     public GameObject moneyText;
-
-    void Awake() {
-        money = 0;
-    }
     
     void Update() {
         UpdateMoney();

@@ -5,7 +5,7 @@ using System.Collections;
 public class SatisfactionHandler : MonoBehaviour
 {
     public Sprite[] satisfactionSprites; // Assign your 25 sprites in the Inspector
-    public int satisfactionLevel = 24; // Start in the middle (adjust as needed)
+    public static int satisfactionLevel;
     private int maxSatisfaction; // Max index for sprites
     private int minSatisfaction = 0; // Minimum sprite index
     private Image imageComponent;
@@ -14,18 +14,23 @@ public class SatisfactionHandler : MonoBehaviour
     private float decreaseTimer = 0f;
     public float decreaseInterval = 10f;
 
+    void Awake() {
+        //Set satisfaction to max to start
+        maxSatisfaction = satisfactionSprites.Length - 1;
+        
+        if (satisfactionLevel == 0) {
+            satisfactionLevel = maxSatisfaction;
+        }
+    }
 
     void Start()
     {
         imageComponent = GetComponent<Image>();
-        //Set satisfaction to max to start
-        maxSatisfaction = satisfactionSprites.Length - 1;
-        satisfactionLevel = maxSatisfaction;
-        //Update image to max image
+        Debug.Log("Starting with " + satisfactionLevel);
         UpdateSatisfactionMeter();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         decreaseTimer += Time.deltaTime;
         if (decreaseTimer >= decreaseInterval) {
@@ -52,6 +57,7 @@ public class SatisfactionHandler : MonoBehaviour
 
     private void UpdateSatisfactionMeter()
     {
+        Debug.Log("Updated to " + satisfactionLevel);
         imageComponent.sprite = satisfactionSprites[satisfactionLevel];
     }
 
