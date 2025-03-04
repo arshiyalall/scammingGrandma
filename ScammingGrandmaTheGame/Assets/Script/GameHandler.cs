@@ -10,8 +10,6 @@ public class GameHandler : MonoBehaviour{
     private GameObject player;
     private string sceneName;
     private int grandmaSatisfaction;
-
-    private int dayNumber; 
     private int money;
 
     private bool caughtByGuard;
@@ -21,6 +19,8 @@ public class GameHandler : MonoBehaviour{
 
     private int startint=0;
     private int updateint=0;
+    public static int dayNumber;
+    public GameObject dayText;
 
     // private GameObject[10] taskArr;
 
@@ -32,7 +32,6 @@ public class GameHandler : MonoBehaviour{
     // private std::vector<task> taskArr;
 
     void Start(){
-        dayNumber = 1;
         money = 0;
         
         Debug.Log("Starting: " + startint);
@@ -50,7 +49,7 @@ public class GameHandler : MonoBehaviour{
     }
 
     void FixedUpdate(){
-
+        UpdateDay();
 
         if ((Input.GetKeyDown(KeyCode.Q))){
             Debug.Log("Hell yeah\n");
@@ -65,6 +64,13 @@ public class GameHandler : MonoBehaviour{
         // }
     }
 
+    public void UpdateDay(){
+        if (dayNumber == 0) {
+            dayNumber++;
+        }
+        Text dayTextTemp = dayText.GetComponent<Text>();
+        dayTextTemp.text = "" + dayNumber;
+    }
 
     //populate the task array with objects of the correct tag
     private void instantianteTaskArr(){
@@ -82,19 +88,21 @@ public class GameHandler : MonoBehaviour{
 
 
     public void StartGame() {
-        SceneManager.LoadScene("Level1");
-
-        //set default values
-        grandmaSatisfaction = 100;
-        numTasksCompleted = 0;
-        numTasksAssigned = 5;
+        SceneManager.LoadScene("DaytimePhase");
     }
 
       // Return to MainMenu
       public void RestartGame() {
             Time.timeScale = 1f;
             SceneManager.LoadScene("StartScreen");
-                // Please also reset all static variables here, for new games!
+
+            // Please also reset all static variables here, for new games!
+            dayNumber = 0;
+            MoneyHandler.money = 0;
+            SatisfactionHandler.satisfactionLevel = 0;
+            for (int i = 0; i < 5; i++) {
+                ItemPill.pickedUpPills[i] = false;
+            }
       }
 
 
