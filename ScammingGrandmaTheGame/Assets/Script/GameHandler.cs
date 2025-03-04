@@ -36,6 +36,12 @@ public class GameHandler : MonoBehaviour{
         
         Debug.Log("Starting: " + startint);
         startint++;
+        
+        // Please also reset all static variables here, for new games!
+        MoneyHandler.money = 0;
+        for (int i = 0; i < 5; i++) {
+            ItemPill.pickedUpPills[i] = false;
+        }
         // SceneManager.LoadScene("StartScreen");
         if (Input.GetKeyDown(KeyCode.Q)){
             Debug.Log("Hell yeah\n");
@@ -91,8 +97,8 @@ public class GameHandler : MonoBehaviour{
         SceneManager.LoadScene("DaytimePhase");
     }
 
-      // Return to MainMenu
-      public void RestartGame() {
+    // Return to MainMenu
+    public void RestartGame() {
             Time.timeScale = 1f;
             SceneManager.LoadScene("StartScreen");
 

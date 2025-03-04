@@ -57,7 +57,7 @@ public class GV : MonoBehaviour
         if (canSeePlayer)
         {
             timePlayerInSight += Time.deltaTime;
-            if (timePlayerInSight > 0.2f) 
+            if (timePlayerInSight > 0.01f) 
             {
                 for (int i = 0; i < 5; i++) {
                     if (pillScripts[i].pickedUpThisRound) {

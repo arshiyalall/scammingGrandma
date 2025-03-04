@@ -282,7 +282,7 @@ MonoBehaviour:
   detectionRange: 5
   fieldOfViewAngle: 45
   rotationSpeed: 2
-  switchDirectionInterval: 3
+  switchDirectionInterval: 2.5
   player: {fileID: 676035289}
   obstacleMask:
     serializedVersion: 2
@@ -1660,7 +1660,7 @@ MonoBehaviour:
   detectionRange: 5
   fieldOfViewAngle: 45
   rotationSpeed: 2
-  switchDirectionInterval: 3
+  switchDirectionInterval: 2.5
   player: {fileID: 676035289}
   obstacleMask:
     serializedVersion: 2
