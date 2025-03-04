@@ -95,7 +95,14 @@ public class GameHandler : MonoBehaviour{
       public void RestartGame() {
             Time.timeScale = 1f;
             SceneManager.LoadScene("StartScreen");
-                // Please also reset all static variables here, for new games!
+
+            // Please also reset all static variables here, for new games!
+            dayNumber = 0;
+            MoneyHandler.money = 0;
+            SatisfactionHandler.satisfactionLevel = 0;
+            for (int i = 0; i < 5; i++) {
+                ItemPill.pickedUpPills[i] = false;
+            }
       }
 
 
