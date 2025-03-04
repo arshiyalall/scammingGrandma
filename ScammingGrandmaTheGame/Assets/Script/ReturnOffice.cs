@@ -10,6 +10,7 @@ public class ReturnOffice : MonoBehaviour
     public bool inOffice;
 
     public CoroutineManager couroutineManager;
+    public TaskManager taskManager;
 
     // Start is called before the first frame update
     void Start()
@@ -30,12 +31,20 @@ public class ReturnOffice : MonoBehaviour
         {
             //When player exits the office initially
             inOffice = false;
-            Debug.Log("collided with inOffice true");
         } else if (collision.CompareTag("Player") && !inOffice) {
             //When player returns to the office
-            myToggle.isOn = true;
-            couroutineManager.endDay();
-            Debug.Log("collided with inOffice false");
+            if (taskManager.taskList[0].taskToggle.isOn){
+                if (taskManager.taskList[1].taskToggle.isOn){
+                    if (taskManager.taskList[2].taskToggle.isOn){
+                        if (taskManager.taskList[3].taskToggle.isOn){
+                            myToggle.isOn = true;
+                            GameHandler.dayNumber++;
+                            couroutineManager.IncreaseSatisfaction();
+                            couroutineManager.endDay();
+                        }
+                    }
+                }
+            }
         }
     }
 }

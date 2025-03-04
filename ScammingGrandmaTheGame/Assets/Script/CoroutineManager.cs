@@ -21,7 +21,7 @@ public class CoroutineManager : MonoBehaviour
     {
         if (satisfactionHandler != null)
         {
-            satisfactionHandler.StartCoroutine(satisfactionHandler.AddSatisfactionCoroutine(5, 1f)); // Increase satisfaction by 10 over 2 seconds
+            satisfactionHandler.StartCoroutine(satisfactionHandler.AddSatisfactionCoroutine(4, 1f));
         }
         else
         {
@@ -60,6 +60,9 @@ public class CoroutineManager : MonoBehaviour
     }
 
     IEnumerator FadeAndLoadDayRoutine() {
+        //Wait a little longer so player can see money earned
+        yield return new WaitForSeconds(1.5f);
+
         float alpha = 1f;
         while (alpha > 0f)
         {

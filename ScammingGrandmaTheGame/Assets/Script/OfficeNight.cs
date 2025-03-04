@@ -8,7 +8,7 @@ public class OfficeNight : MonoBehaviour
 {
     public bool inOffice;
 
-    public CoroutineManager couroutineManager;
+    public CoroutineManager coroutineManager;
     public ItemPill[] pillScripts;
     public int moneyThisRound;
 
@@ -38,11 +38,11 @@ public class OfficeNight : MonoBehaviour
             Debug.Log("Entered office");
             for (int i = 0; i < 5; i++) {
                 if (pillScripts[i].pickedUpThisRound) {
-                    Debug.Log("Picked Up " + i);
+                    MoneyHandler.money += Random.Range(10000, 15000);
+                    Debug.Log(MoneyHandler.money);
                 }
             }
-            //Debug.Log();
-            couroutineManager.endNight();
+            coroutineManager.endNight();
         }
     }
 }

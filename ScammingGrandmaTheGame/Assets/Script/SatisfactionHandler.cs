@@ -1,31 +1,35 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class SatisfactionHandler : MonoBehaviour
 {
     public Sprite[] satisfactionSprites; // Assign your 25 sprites in the Inspector
-    public int satisfactionLevel = 24; // Start in the middle (adjust as needed)
+    public static int satisfactionLevel;
     private int maxSatisfaction; // Max index for sprites
     private int minSatisfaction = 0; // Minimum sprite index
     private Image imageComponent;
-
-    public float decreaseRate = 0.5f;
+    //public float decreaseRate = 10f;
     private float decreaseTimer = 0f;
     public float decreaseInterval = 10f;
 
+    void Awake() {
+        //Set satisfaction to max to start
+        maxSatisfaction = satisfactionSprites.Length - 1;
+
+        if (satisfactionLevel == 0) {
+            satisfactionLevel = maxSatisfaction;
+        }
+    }
 
     void Start()
     {
         imageComponent = GetComponent<Image>();
-        //Set satisfaction to max to start
-        maxSatisfaction = satisfactionSprites.Length - 1;
-        satisfactionLevel = maxSatisfaction;
-        //Update image to max image
         UpdateSatisfactionMeter();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         decreaseTimer += Time.deltaTime;
         if (decreaseTimer >= decreaseInterval) {
@@ -35,11 +39,8 @@ public class SatisfactionHandler : MonoBehaviour
             AdjustSatisfaction(-1);
 
             if (satisfactionLevel <= minSatisfaction) {
-                //Keep constant at lowest level if it reaches that point
-                //TODO end game and show you lose screen if satisfaction runs out
-                satisfactionLevel = minSatisfaction;
+                SceneManager.LoadScene("GameLoseScene");
             }
-
         }
     }
 
