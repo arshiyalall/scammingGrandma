@@ -88,12 +88,7 @@ public class GameHandler : MonoBehaviour{
 
 
     public void StartGame() {
-        SceneManager.LoadScene("Level1");
-
-        //set default values
-        grandmaSatisfaction = 100;
-        numTasksCompleted = 0;
-        numTasksAssigned = 5;
+        SceneManager.LoadScene("DaytimePhase");
     }
 
       // Return to MainMenu
