@@ -10,6 +10,7 @@ public class GameTimer : MonoBehaviour {
     private float theTimer = 0f;
     public GameObject timerText;
     public CoroutineManager coroutineManager;
+    public ItemPill[] pillScripts;
 
     void FixedUpdate(){
         theTimer += 0.01f;
@@ -41,11 +42,10 @@ public class GameTimer : MonoBehaviour {
 
     public void timerEnded(){
         UnityEngine.Debug.Log("Timer has reached 0");
-        
-        
-        //Here is the place where we will transition to the nightscreen. But it is not working. 
-        
+        //Don't count any pills picked up if timer runs out
+        for (int i = 0; i < 5; i++) {
+            pillScripts[i].pickedUpThisRound = false;
+        }
         coroutineManager.endNight();
-
     }
 }

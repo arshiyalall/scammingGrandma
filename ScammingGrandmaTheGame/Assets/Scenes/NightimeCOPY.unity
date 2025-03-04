@@ -1570,6 +1570,12 @@ MonoBehaviour:
   timer: 40
   timerText: {fileID: 459872216}
   coroutineManager: {fileID: 40122530}
+  pillScripts:
+  - {fileID: 931638584}
+  - {fileID: 1059703275}
+  - {fileID: 955320787}
+  - {fileID: 598042354}
+  - {fileID: 1976306291}
 --- !u!114 &1258477240 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1943508907139746948, guid: 94b45bf0995b74862951c6c8144db13e, type: 3}

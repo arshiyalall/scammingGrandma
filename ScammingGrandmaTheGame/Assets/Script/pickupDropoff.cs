@@ -35,10 +35,12 @@ public class pickupDropoff : MonoBehaviour
 
         if (checklistManager != null)
         {
-            associatedToggle = checklistManager.GetToggleForTask(taskName.Trim());
+            associatedToggle = checklistManager.GetToggleForTask(taskName);
             if (associatedToggle == null)
             {
                 Debug.LogError("No toggle found for task: " + taskName);
+            } else {
+                Debug.Log("Toggle found!!!!! " + taskName);
             }
         }
         else
