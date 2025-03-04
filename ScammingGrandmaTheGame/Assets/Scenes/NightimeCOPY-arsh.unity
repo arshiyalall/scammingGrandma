@@ -3647,7 +3647,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inOffice: 0
-  couroutineManager: {fileID: 40122530}
+  coroutineManager: {fileID: 0}
   pillScripts:
   - {fileID: 931638584}
   - {fileID: 1059703275}
