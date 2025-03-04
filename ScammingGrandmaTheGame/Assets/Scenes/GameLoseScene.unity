@@ -483,7 +483,7 @@ GameObject:
   - component: {fileID: 1186387407}
   - component: {fileID: 1186387406}
   m_Layer: 5
-  m_Name: GameWinCanvas
+  m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -601,7 +601,7 @@ GameObject:
   - component: {fileID: 1208461638}
   - component: {fileID: 1208461637}
   m_Layer: 5
-  m_Name: YouWin
+  m_Name: YouLose
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -616,7 +616,7 @@ RectTransform:
   m_GameObject: {fileID: 1208461635}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 4.375314}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1186387410}
@@ -624,7 +624,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4, y: 131}
+  m_AnchoredPosition: {x: -0.000015259, y: 130}
   m_SizeDelta: {x: 867.3193, y: 140.8511}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1208461637
@@ -654,13 +654,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 100
-    m_Alignment: 4
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 1
-    m_VerticalOverflow: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: You won in     days!
+  m_Text: You lost on day
 --- !u!222 &1208461638
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -746,7 +746,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 122, y: 130}
+  m_AnchoredPosition: {x: 341, y: 130}
   m_SizeDelta: {x: 172.1848, y: 140.85}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1474434113

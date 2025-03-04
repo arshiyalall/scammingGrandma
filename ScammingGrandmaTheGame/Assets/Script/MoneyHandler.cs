@@ -11,6 +11,9 @@ public class MoneyHandler : MonoBehaviour {
     
     void Update() {
         UpdateMoney();
+        if (money >= 50000) {
+            SceneManager.LoadScene("GameWinScene");
+        }
     }
 
     public void UpdateMoney(){

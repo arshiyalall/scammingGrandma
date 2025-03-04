@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class SatisfactionHandler : MonoBehaviour
@@ -38,11 +39,8 @@ public class SatisfactionHandler : MonoBehaviour
             AdjustSatisfaction(-1);
 
             if (satisfactionLevel <= minSatisfaction) {
-                //Keep constant at lowest level if it reaches that point
-                //TODO end game and show you lose screen if satisfaction runs out
-                satisfactionLevel = minSatisfaction;
+                SceneManager.LoadScene("GameLoseScene");
             }
-
         }
     }
 
