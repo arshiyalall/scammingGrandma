@@ -33,6 +33,7 @@ public class ReturnOffice : MonoBehaviour
         } else if (collision.CompareTag("Player") && !inOffice) {
             //When player returns to the office
             myToggle.isOn = true;
+            GameHandler.dayNumber++;
             couroutineManager.IncreaseSatisfaction();
             couroutineManager.endDay();
         }

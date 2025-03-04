@@ -9,7 +9,7 @@ public class SatisfactionHandler : MonoBehaviour
     private int maxSatisfaction; // Max index for sprites
     private int minSatisfaction = 0; // Minimum sprite index
     private Image imageComponent;
-    public float decreaseRate = 0.5f;
+    //public float decreaseRate = 10f;
     private float decreaseTimer = 0f;
     public float decreaseInterval = 10f;
 
