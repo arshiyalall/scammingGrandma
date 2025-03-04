@@ -44,7 +44,9 @@ public class GameTimer : MonoBehaviour {
         UnityEngine.Debug.Log("Timer has reached 0");
         //Don't count any pills picked up if timer runs out
         for (int i = 0; i < 5; i++) {
-            pillScripts[i].pickedUpThisRound = false;
+            if (pillScripts[i].pickedUpThisRound) {
+                ItemPill.pickedUpPills[i] = false;
+            }
         }
         coroutineManager.endNight();
     }
