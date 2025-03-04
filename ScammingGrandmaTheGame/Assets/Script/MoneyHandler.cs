@@ -12,12 +12,18 @@ public class MoneyHandler : MonoBehaviour {
     void Update() {
         UpdateMoney();
         if (money >= 50000) {
-            SceneManager.LoadScene("GameWinScene");
+            StartCoroutine(takeItAllIn());
         }
     }
 
     public void UpdateMoney(){
         Text moneyTextTemp = moneyText.GetComponent<Text>();
         moneyTextTemp.text = "$" + money;
+    }
+
+    IEnumerator takeItAllIn() {
+        yield return new WaitForSeconds(1.5f);
+        GameHandler.dayNumber--;
+        SceneManager.LoadScene("GameWinScene");
     }
 }

@@ -16,8 +16,8 @@ public class TaskManager : MonoBehaviour
     public string[] possibleTasks = { "Bring meal to 101", "Bring meal to 102", 
         "Bring meal to 103", "Bring meal to 104", "Bring blanket to 101", 
         "Bring blanket to 102", "Bring blanket to 103", "Bring blanket to 104", 
-        "Mark spill in hall", "Mark spill in kitchen"}; 
-        //"Water tomatoes", "Water roses", "Mark spill in hall", "Mark spill in kitchen"
+        "Mark spill in hall", "Mark spill in kitchen", "Water tomatoes",
+        "Water roses"}; 
     public List<GameObject> allTaskPrefabs; // All available task prefabs in the scene
 
     private Dictionary<string, Toggle> taskToggleMap = new Dictionary<string, Toggle>();
