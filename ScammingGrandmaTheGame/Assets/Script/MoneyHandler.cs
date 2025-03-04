@@ -24,6 +24,6 @@ public class MoneyHandler : MonoBehaviour {
     IEnumerator takeItAllIn() {
         yield return new WaitForSeconds(1.5f);
         GameHandler.dayNumber--;
-        SceneManager.LoadScene("GameWinScene");
+        SceneManager.LoadScene("Win");
     }
 }
